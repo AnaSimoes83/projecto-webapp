@@ -21,3 +21,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('produtos','ProdutoController');
 
+Route::resource('pontosdados','PontoDadosController');
+

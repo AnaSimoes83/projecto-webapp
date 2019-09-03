@@ -4,11 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Produto extends Model
+class PontoDados extends Model
 {
     protected $fillable = [
-    	"nome","notas"
+    	"nome","preco","produto_id" // produto_id ???
     ];
 }
-
-
