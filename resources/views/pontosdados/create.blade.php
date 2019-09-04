@@ -14,10 +14,10 @@
 		<div class="form-group">
 			<label for="tipo">Tipo</label>
 			<select name="tipo" id="tipo" required>
-				<option value="texto">Texto</option>
-				<option value="data">Data</option>
-				<option value="numerico_superior">num sup</option>
-				<option value="numerico_inferior">num inf</option>
+				<option value="1">Texto</option>
+				<option value="2">Data</option>
+				<option value="3">Numérico superior</option>
+				<option value="4">Numérico inferior</option>
 			</select>
 		</div>
 		

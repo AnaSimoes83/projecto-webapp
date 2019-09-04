@@ -13,7 +13,7 @@
 		</div>
 		<div class="form-group">
 			<label for="notas">Notas</label>
-			<textarea name="notas" id="notas" class="form-control"></textarea>
+			<textarea name="notas" id="nots" class="form-control"></textarea>
 		</div>
 		<div class="form-group">
 			<label for="estado">Estado</label>
@@ -38,12 +38,12 @@
 			</tr>
 		</thead>
 		<tbody>
-			@foreach($pontosdados as $dados)
+			
 			<tr>
-				<td>{{ $dados['nome'] }}</td>
-				<td>{{ $dados['tipo'] }}</td>
+				<td></td>
+				<td></td>
 			</tr>
-			@endforeach
+			
 		</tbody>
 			</table>
 
