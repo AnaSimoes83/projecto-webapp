@@ -34,10 +34,7 @@
                     <!-- Left Side Of Navbar -->
                    
                     <ul class="navbar-nav mr-auto">
-                        <form action="produtos/index.blade.php" method="get">
-                                <input type="text" name="nome" id="idNome" placeholder="Produto a pesquisar" value="">
-                                <input type="submit" value="Pesquisar" class="btn btn-search">
-                        </form>
+                        
 
                     </ul>
 
@@ -54,6 +51,10 @@
                                 </li>
                             @endif
                         @else
+                        <form action="produtos/index.blade.php" method="get">
+                                <input type="text" name="nome" id="idNome" placeholder="Produto a pesquisar" value="">
+                                <input type="submit" value="Pesquisar" class="btn btn-search">
+                        </form>
                         <li class="nav-item">
                                 <a class="nav-link" href="{{ route('produtos.index') }}">{{ __('Produtos') }}</a>
                             </li>
