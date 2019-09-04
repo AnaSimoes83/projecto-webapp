@@ -25,7 +25,8 @@ class ProdutoController extends Controller
      */
     public function create()
     {
-        //
+        $produtos = Produto::all();
+        return view('produtos.create')->with('produtos',$produtos);
     }
 
     /**
