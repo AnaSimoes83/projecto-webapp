@@ -16,7 +16,7 @@ class CreatePontoDadosTable extends Migration
         Schema::create('ponto_dados', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nome');
-            $table->decimal('preco', 8, 2); //aceita 8 dígitos + 2 casas decimais
+            $table->string('tipo');
             $table->integer('produto_id');
             $table->foreign('produto_id')->references('id')->on('produtos'); // produto_id é chave primária da tabela produtos
             $table->timestamps();

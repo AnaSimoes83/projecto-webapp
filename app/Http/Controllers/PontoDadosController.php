@@ -14,7 +14,8 @@ class PontoDadosController extends Controller
      */
     public function index()
     {
-        //
+        $pontosdados = PontoDados::paginate(10);
+        return view('pontosdados.index')->with('pontosdados',$pontosdados);
     }
 
     /**
@@ -24,7 +25,8 @@ class PontoDadosController extends Controller
      */
     public function create()
     {
-        //
+        $pontosdados = PontoDados::all();
+        return view('pontosdados.create')->with('pontosdados',$pontosdados);
     }
 
     /**

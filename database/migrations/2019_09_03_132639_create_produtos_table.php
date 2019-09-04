@@ -17,7 +17,7 @@ class CreateProdutosTable extends Migration
             $table->bigIncrements('id');
             $table->string('nome');
             $table->text('notas');
-            $table->string('estado');
+            $table->enum('estado');
             $table->timestamps();
         });
     }
