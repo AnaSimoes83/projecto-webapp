@@ -47,7 +47,7 @@ class ProdutoController extends Controller
         $produto->fill($request->all());
         $produto->save();
 
-        return redirect()->route('produtos.create');
+        return redirect()->route('produtos.show',$produto);
     }
 
     /**
@@ -58,6 +58,7 @@ class ProdutoController extends Controller
      */
     public function show(Produto $produto)
     {
+        $produtos = Produto::all();
         return view('produtos.show')->with('produto',$produto);
     }
 
@@ -81,7 +82,7 @@ class ProdutoController extends Controller
      */
     public function update(Request $request, Produto $produto)
     {
-        //
+       //
     }
 
     /**
@@ -93,7 +94,6 @@ class ProdutoController extends Controller
     public function destroy(Produto $produto)
     {
         $produto->delete();
-// Colocar a mensagem de confirmação
         return redirect()->route('produtos.index');
     }
 
