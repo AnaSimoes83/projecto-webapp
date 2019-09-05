@@ -2,7 +2,11 @@
 
 @section('content')
 
-view edit
+<div class="container">
+	<h1>Editar Produto</h1>
+
+	
+</div>
 
 
 @endsection
