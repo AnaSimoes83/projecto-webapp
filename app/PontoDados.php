@@ -8,4 +8,9 @@ class PontoDados extends Model
 {
     protected $fillable = [
     	"nome","tipo"];
+
+	public function produto (){
+ 		return $this->belongsTo('App\Produtos');
+	}
+
 }

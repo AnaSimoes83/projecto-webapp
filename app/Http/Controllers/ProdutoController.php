@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
 {
+    
+
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +17,10 @@ class ProdutoController extends Controller
     public function index()
     {
         $produtos = Produto::paginate(10);
+      /*  $produtos =[
+ ["nome"=>"tv", "notas"=>"para a sala","created_at"=>"5set2019"],
+        ];*/
+        //o primeiro produto foi inserido para teste
         return view('produtos.index')->with('produtos',$produtos);
     }
 
@@ -37,7 +43,11 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $produto = new Produto();
+        $produto->fill($request->all());
+        $produto->save();
+
+        return redirect()->route('produtos.create');
     }
 
     /**
@@ -48,7 +58,7 @@ class ProdutoController extends Controller
      */
     public function show(Produto $produto)
     {
-        //
+        return view('produtos.show')->with('produto',$produto);
     }
 
     /**
@@ -59,7 +69,7 @@ class ProdutoController extends Controller
      */
     public function edit(Produto $produto)
     {
-        //
+        return view('produtos.edit')->with('produto',$produto);
     }
 
     /**
@@ -82,6 +92,9 @@ class ProdutoController extends Controller
      */
     public function destroy(Produto $produto)
     {
-        //
+        $produto->delete();
+// Colocar a mensagem de confirmação
+        return redirect()->route('produtos.index');
     }
+
 }
