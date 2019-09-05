@@ -9,22 +9,28 @@
 		<div class="form-group">
 			<label for="nome">Nome</label>
 			<input type="text" name="nome"
-				   id="nome" class="form-control">
+				   id="nome" class="form-control" required>
 		</div>
 		<div class="form-group">
 			<label for="notas">Notas</label>
-			<textarea name="notas" id="nots" class="form-control"></textarea>
+			<textarea name="notas" id="notas" class="form-control"></textarea>
 		</div>
 		<div class="form-group">
 			<label for="estado">Estado</label>
 			<select name="estado" id="estado" required>
-				<option value="Em curso" selected='selected'>Em curso</option>
+				<option value="Em curso">Em curso</option>
 				<option value="Terminado">Terminado</option>
 			</select>
 
 		</div>
 
+	<button type="submit" class="btn btn-primary">Guardar Novo Produto</button>
+
+	<a href="{{route('produtos.index')}}" class="btn btn-primary">Voltar</a>
+
 	</form>
+
+
 
 	<h3> Características do Produto </h3>
 	<form method="POST" action="{{route('pontosdados.create')}}">
@@ -52,7 +58,7 @@
 		</div>
 	</form>
 
-	<button type="submit" class="btn btn-primary">Guardar</button>
+	
 
 </div>
 
