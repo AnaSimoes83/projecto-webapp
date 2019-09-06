@@ -7,8 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Produto extends Model
 {
     protected $fillable = [
-    	"nome","notas","estado"
-    ];
+    	"nome","notas","estado"];
+    
+    public function pontos_dados (){
+ 		return $this->hasMany('App\PontoDados');
+ 	}
 }
 
 

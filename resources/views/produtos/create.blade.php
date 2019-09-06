@@ -9,11 +9,11 @@
 		<div class="form-group">
 			<label for="nome">Nome</label>
 			<input type="text" name="nome"
-				   id="nome" class="form-control" required>
+				   id="nome" class="form-control" placeholder="Este campo é obrigatório" required>
 		</div>
 		<div class="form-group">
 			<label for="notas">Notas</label>
-			<textarea name="notas" id="notas" class="form-control"></textarea>
+			<textarea name="notas" id="notas" class="form-control" placeholder="Insira uma descrição para este produto"></textarea>
 		</div>
 		<div class="form-group">
 			<label for="estado">Estado</label>
@@ -24,42 +24,9 @@
 
 		</div>
 
-	<button type="submit" class="btn btn-primary">Guardar Novo Produto</button>
+	<button type="submit" class="btn btn-primary" id="button-create-caract">Guardar e Adicionar Características</button>
+	<!-- Este id está definido em javascript.js-->
 
 	<a href="{{route('produtos.index')}}" class="btn btn-primary">Voltar</a>
-
-	</form>
-
-
-
-	<h3> Características do Produto </h3>
-	<form method="POST" action="{{route('pontosdados.create')}}">
-		@csrf()
-		<div class="form-group">
-			<table class="table">
-		<thead>
-			<tr>
-				<th>Nome</th>
-				<th>Tipo</th>
-			</tr>
-		</thead>
-		<tbody>
-			
-			<tr>
-				<td></td>
-				<td></td>
-			</tr>
-			
-		</tbody>
-			</table>
-
-			<button type="submit" class="btn btn-primary">Adicionar Característica</button>
-			
-		</div>
-	</form>
-
-	
-
-</div>
 
 @endsection

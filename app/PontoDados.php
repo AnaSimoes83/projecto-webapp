@@ -10,7 +10,7 @@ class PontoDados extends Model
     	"nome","tipo"];
 
 	public function produto (){
- 		return $this->belongsTo('App\Produtos');
+ 		return $this->belongsTo('App\Produto');
 	}
 
 }

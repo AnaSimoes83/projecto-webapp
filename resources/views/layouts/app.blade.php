@@ -11,13 +11,15 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
+    <script src="{{ asset('js/script.js') }}" defer></script>
+    
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
 
 </head>
 <body>
@@ -52,7 +54,7 @@
                                 </li>
                             @endif
                         @else
-                        <form action="produtos/index.blade.php" method="get">
+                        <form action="produtos" method="get">
                                 <input type="text" name="nome" id="idNome" placeholder="Produto a pesquisar" value="">
                                 <input type="submit" value="Pesquisar" class="btn btn-search">
                         </form>

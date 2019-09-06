@@ -14,14 +14,29 @@ class ProdutoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $produtos = Produto::paginate(10);
-      /*  $produtos =[
- ["nome"=>"tv", "notas"=>"para a sala","created_at"=>"5set2019"],
-        ];*/
-        //o primeiro produto foi inserido para teste
+        $produtos = Produto::where('estado','=','Em curso')->paginate(10);
+
+        if($request->ver=='todos'){
+            $produtos = Produto::paginate(10);    
+        }
+
+        if($request->has('nome')){
+            $produtos = Produto::where('nome','=',$request->nome)->paginate(10);
+        }
+
+       // $request->has('nome')
         return view('produtos.index')->with('produtos',$produtos);
+        // }
+
+        // if($request->params['']=='todos'){
+        //     $produtos = Produto::all();    
+        // }else {
+        //     $produtos = Produto::where('nome','=',request()->params['nome'])->get();
+       
+        // return view('produtos.index')->with('produtos',$produtos);
+        // }
     }
 
     /**
@@ -31,7 +46,8 @@ class ProdutoController extends Controller
      */
     public function create()
     {
-        $produtos = Produto::all();
+       
+        $produtos = Produto::all();       
         return view('produtos.create')->with('produtos',$produtos);
     }
 
