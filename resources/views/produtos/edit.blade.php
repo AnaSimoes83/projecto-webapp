@@ -92,6 +92,8 @@
 <br>
 <button type="submit" class="btn btn-primary">Adicionar Opção</button> 
 <!--abrir a página show dos produtos para adicionar as opções-->
+
+<a href="{{route('produtos.index')}}" class="btn btn-primary">Voltar</a>
 </div>
 
 
