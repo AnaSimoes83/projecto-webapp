@@ -5,7 +5,7 @@
 <div class="container">
 	<h1>Editar Produto</h1>
 
-	<form method="POST" >
+	<form method="POST" action="{{route('produtos.update', $produto)}}">
 		@method('PUT')
 	
 		@csrf()
@@ -26,10 +26,7 @@
 			</select>
 
 		</div>
-
 	<button type="submit" class="btn btn-primary">Atualizar</button>
-
-	
 	</form>
 
 	<br>
@@ -47,9 +44,10 @@
 		</thead>
 		<tbody>
 			@foreach($produto->pontos_dados as $pontodados)
-			<tr onclick="goToPontoDados({{ $pontodados['id'] }} );">
+			<tr onclick="goToPontoDados( {{ $pontodados['id'] }} )">
 				<td>{{ $pontodados['nome'] }}</td>
 				<td>{{ $pontodados['tipo'] }}</td>
+				<td>{{ $pontodados['produto_id'] }}</td>
 			</tr>
 			@endforeach
 		</tbody>
@@ -63,25 +61,30 @@
 
 <h3>Adicionar Característica</h3>
 
-	<form method="POST" id="form-create-caract">
-		@method('PUT')
+	<form method="POST" action="{{route('pontosdados.store', $produto)}}" >
 		@csrf()
 		<div class="form-group">
 			<label for="nome">Nome</label>
 			<input type="text" name="nome" 
 				   id="nome" class="form-control" placeholder="Insira a característica">
 		</div>
-		
+
 		<div class="form-group">
 			<label for="tipo">Tipo</label>
 			<select name="tipo" id="tipo" required>
-						<option value="1">Texto</option>
-						<option value="2">Data</option>
-						<option value="3">Numérico superior</option>
-						<option value="4">Numérico inferior</option>
+						<option value="texto">Texto</option>
+						<option value="data">Data</option>
+						<option value="numérico superior">Numérico superior</option>
+						<option value="numérico inferior">Numérico inferior</option>
 					</select>
 
 		</div>
+
+		<div class="form-group">
+			<input type="hidden" name="produto_id" 
+				   id="produto_id" class="form-control" value="{{ $produto['produto_id'] }}">
+		</div>
+		
 
 	<button type="submit" class="btn btn-primary">Gravar</button>
 	
@@ -90,13 +93,15 @@
 
 
 <br>
-<button type="submit" class="btn btn-primary">Adicionar Opção</button> 
+	<button type="submit" class="btn btn-primary">Adicionar Opção</button> 
 <!--abrir a página show dos produtos para adicionar as opções-->
-
-<a href="{{route('produtos.index')}}" class="btn btn-primary">Voltar</a>
 </div>
 
+<br>
 
-
+<div class="container">
+	
+	<a href="{{route('produtos.index')}}" class="btn btn-primary">Voltar</a>
+</div>
 
 @endsection

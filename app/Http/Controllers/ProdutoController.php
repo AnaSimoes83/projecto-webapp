@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Produto;
+use App\PontoDados;
 use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
@@ -63,7 +64,19 @@ class ProdutoController extends Controller
         $produto->fill($request->all());
         $produto->save();
 
-        return redirect()->route('produtos.show',$produto);
+        $pontodados=new PontoDados();
+        $pontodados['nome']="Nome";
+        $pontodados['tipo']="texto";
+        $pontodados['produto_id'] = $produto->id;
+        $pontodados->save();
+
+        $pontodados=new PontoDados();
+        $pontodados['nome']="Preço";
+        $pontodados['tipo']="numérico inferior";
+        $pontodados['produto_id'] = $produto->id;
+        $pontodados->save();
+
+        return redirect()->route('produtos.edit',$produto);
     }
 
     /**
@@ -98,7 +111,10 @@ class ProdutoController extends Controller
      */
     public function update(Request $request, Produto $produto)
     {
-       //
+        $produto->fill($request->all());
+        $produto->save();
+
+        return redirect()->route('produtos.edit',$produto); 
     }
 
     /**

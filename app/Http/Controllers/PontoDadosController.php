@@ -26,7 +26,9 @@ class PontoDadosController extends Controller
     public function create()
     {
         $pontosdados = PontoDados::all();
+   
         return view('produtos.show')->with('pontodados',$pontosdados);
+   
     }
 
     /**
@@ -40,8 +42,9 @@ class PontoDadosController extends Controller
         $pontosdados = new PontoDados();
         $pontosdados->fill($request->all());
         $pontosdados->save();
+        
 
-        return redirect()->route('produtos.show',$pontosdados);
+        return redirect()->route('produtos.edit',$pontosdados);
     }
 
     /**
