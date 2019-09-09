@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\PontoDados;
+use App\Produto;
 use Illuminate\Http\Request;
 
 class PontoDadosController extends Controller
@@ -26,9 +27,7 @@ class PontoDadosController extends Controller
     public function create()
     {
         $pontosdados = PontoDados::all();
-   
         return view('produtos.show')->with('pontodados',$pontosdados);
-   
     }
 
     /**
@@ -42,9 +41,7 @@ class PontoDadosController extends Controller
         $pontosdados = new PontoDados();
         $pontosdados->fill($request->all());
         $pontosdados->save();
-        
-
-        return redirect()->route('produtos.edit',$pontosdados);
+        return redirect()->route('produtos.edit', $pontosdados->produto_id);
     }
 
     /**
@@ -87,8 +84,9 @@ class PontoDadosController extends Controller
      * @param  \App\PontoDados  $pontoDados
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PontoDados $pontoDados)
+    public function destroy(PontoDados $pontosdado)
     {
-        //
+        $pontosdado->delete();
+        return redirect()->route('produtos.edit', Produto::findOrFail($pontosdado->produto_id));
     }
 }

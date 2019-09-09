@@ -2,6 +2,8 @@
 
 @section('content')
 
+
+Apagar?
 <div class="container">
 	<h1> Nova Característica </h1>
 	<form method="POST" action="{{route('pontosdados.store')}}">

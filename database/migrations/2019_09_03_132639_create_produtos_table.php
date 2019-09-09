@@ -16,7 +16,7 @@ class CreateProdutosTable extends Migration
         Schema::create('produtos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nome');
-            $table->text('notas');
+            $table->text('notas')->nullable();
             $table->string('estado')->default("Em curso");
             $table->timestamps();
         });
