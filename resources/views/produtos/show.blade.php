@@ -9,8 +9,7 @@
 		@method('PUT')
 		@csrf()
 		<div class="form-group">
-			<label for="notas">Notas</label>
-			<textarea name="notas" id="notas" class="form-control">{{$produto['notas']}}</textarea>
+			<label for="notas">Notas: {{$produto['notas']}}</label>
 		</div>
 		<div class="form-group">
 			<label for="estado">Estado: {{$produto['estado']}}</label>

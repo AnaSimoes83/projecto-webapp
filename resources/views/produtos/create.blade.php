@@ -8,8 +8,7 @@
 		@csrf()
 		<div class="form-group">
 			<label for="nome">Nome</label>
-			<input type="text" name="nome"
-				   id="nome" class="form-control" placeholder="Este campo é obrigatório" required>
+			<input type="text" name="nome" id="nome" class="form-control" placeholder="Este campo é obrigatório" required>
 		</div>
 		<div class="form-group">
 			<label for="notas">Notas</label>
@@ -21,7 +20,6 @@
 				<option value="Em curso">Em curso</option>
 				<option value="Terminado">Terminado</option>
 			</select>
-
 		</div>
 
 	<button type="submit" class="btn btn-primary" id="button-create-caract">Guardar e Adicionar Características</button>

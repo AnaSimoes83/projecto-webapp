@@ -3,6 +3,7 @@
 @section('content')
 
 <div class="container">
+<h1>Lista dos seus Produtos </h1>
 
 <table class="table">
 		<thead>
@@ -33,18 +34,15 @@
 				</td>
 				<td>
 					<form method="POST" action="{{route('produtos.destroy',$produto)}}">
-					@method('DELETE')
+						@method('DELETE')
 						@csrf()
-						<button type="submit" 
-								onclick="return confirm('Tem a certeza que pretende apagar este produto?')" class="btn btn-link">Apagar</button>	
-					</form>
-						
+						<button type="submit" onclick="return confirm('Tem a certeza que pretende apagar este produto?')" class="btn btn-link">Apagar</button>	
+					</form>						
 				</td>
 			</tr>
 			@endforeach
 		</tbody>
 </table>
-
 </div>
 
 <div class="container">
@@ -52,9 +50,5 @@
 
 	<a href="/produtos?ver=todos" class="btn btn-primary" id="ver" value="todos">Ver Todos</a>
 </div>
-
-
-
-
 
 @endsection

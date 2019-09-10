@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 class ProdutoController extends Controller
 {
     
-
     /**
      * Display a listing of the resource.
      *
@@ -27,9 +26,7 @@ class ProdutoController extends Controller
             $produtos = Produto::where('nome','=',$request->nome)->paginate(10);
         }
 
-       // $request->has('nome')
         return view('produtos.index')->with('produtos',$produtos);
-        // }
 
         // if($request->params['']=='todos'){
         //     $produtos = Produto::all();    
@@ -47,7 +44,6 @@ class ProdutoController extends Controller
      */
     public function create()
     {
-       
         $produtos = Produto::all();       
         return view('produtos.create')->with('produtos',$produtos);
     }
@@ -113,7 +109,6 @@ class ProdutoController extends Controller
     {
         $produto->fill($request->all());
         $produto->save();
-
         return redirect()->route('produtos.edit',$produto); 
     }
 
