@@ -12,6 +12,10 @@ class Produto extends Model
     public function pontos_dados (){
  		return $this->hasMany('App\PontoDados');
  	}
+ 	
+ 	public function opcaos (){
+ 		return $this->hasMany('App\Opcao');
+ 	}
 }
 
 

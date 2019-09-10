@@ -23,3 +23,6 @@ Route::resource('produtos','ProdutoController');
 
 Route::resource('pontosdados','PontoDadosController');
 
+Route::resource('opcaos','OpcaoController');
+Route::get('/opcaos/{produto}/create','OpcaoController@create')->name('opcaos.create');
+

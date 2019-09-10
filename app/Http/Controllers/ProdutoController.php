@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Produto;
 use App\PontoDados;
+use App\Opcao;
 use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
@@ -62,13 +63,37 @@ class ProdutoController extends Controller
 
         $pontodados=new PontoDados();
         $pontodados['nome']="Nome";
-        $pontodados['tipo']="texto";
+        $pontodados['tipo']="Texto";
         $pontodados['produto_id'] = $produto->id;
         $pontodados->save();
 
         $pontodados=new PontoDados();
         $pontodados['nome']="Preço";
-        $pontodados['tipo']="numérico inferior";
+        $pontodados['tipo']="Numérico inferior";
+        $pontodados['produto_id'] = $produto->id;
+        $pontodados->save();
+
+        $pontodados=new PontoDados();
+        $pontodados['nome']="Imagens";
+        $pontodados['tipo']="";
+        $pontodados['produto_id'] = $produto->id;
+        $pontodados->save();
+
+        $pontodados=new PontoDados();
+        $pontodados['nome']="Notas";
+        $pontodados['tipo']="Texto";
+        $pontodados['produto_id'] = $produto->id;
+        $pontodados->save();
+
+        $pontodados=new PontoDados();
+        $pontodados['nome']="Link compra";
+        $pontodados['tipo']="Texto";
+        $pontodados['produto_id'] = $produto->id;
+        $pontodados->save();
+
+        $pontodados=new PontoDados();
+        $pontodados['nome']="Link informação";
+        $pontodados['tipo']="Texto";
         $pontodados['produto_id'] = $produto->id;
         $pontodados->save();
 

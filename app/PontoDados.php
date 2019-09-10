@@ -11,4 +11,8 @@ class PontoDados extends Model
 	public function produto (){
  		return $this->belongsTo('App\Produto');
 	}
+
+	public function opcaos (){
+ 		return $this->hasMany('App\Opcao');
+ 	}
 }

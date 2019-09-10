@@ -22,9 +22,9 @@
 			</select>
 		</div>
 
-	<button type="submit" class="btn btn-primary" id="button-create-caract">Guardar e Adicionar Características</button>
+	<button type="submit" class="btn-orange">Guardar e Adicionar Características</button>
 	<!-- Este id está definido em javascript.js-->
 
-	<a href="{{route('produtos.index')}}" class="btn btn-primary">Voltar</a>
+	<a href="{{route('produtos.index')}}" class="btn-orange">Voltar</a>
 
 @endsection

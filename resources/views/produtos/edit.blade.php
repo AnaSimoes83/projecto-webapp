@@ -25,7 +25,7 @@
 			</select>
 
 		</div>
-		<button type="submit" class="btn btn-primary">Atualizar</button>
+		<button type="submit" class="btn-orange">Atualizar Produto</button>
 	</form>
 
 	<br>
@@ -69,7 +69,7 @@
 		@csrf()
 		<div class="form-group">
 			<label for="nome">Nome</label>
-			<input type="text" name="nome" id="nome" class="form-control" placeholder="Insira a característica">
+			<input type="text" name="nome" id="nome" class="form-control" placeholder="Insira a característica a adicionar">
 		</div>
 
 		<div class="form-group">
@@ -87,7 +87,7 @@
 			id="produto_id" class="form-control" value="{{ $produto['id'] }}">
 		</div>
 		
-		<button type="submit" class="btn btn-primary">Gravar</button>
+		<button type="submit" class="btn-orange">Gravar característica</button>
 
 	</form>	
 
@@ -95,14 +95,14 @@
 	<br>
 	<h2> Opções </h2>
 	<br>
-	<a href="{{route('produtos.show',$produto)}}" class="btn btn-primary">Adicionar Opção</a> 
+	<a href="{{route('opcaos.create', $produto)}}" class="btn-orange">Adicionar Opção</a> 
 	<!--abrir a página show dos produtos para adicionar as opções-->
 </div>
 
 <br>
 
 <div class="container">
-	<a href="{{route('produtos.index')}}" class="btn btn-primary">Voltar</a>
+	<a href="{{route('produtos.index')}}" class="btn-orange">Voltar</a>
 </div>
 
 @endsection

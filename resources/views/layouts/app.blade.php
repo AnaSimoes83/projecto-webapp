@@ -54,11 +54,7 @@
                                 </li>
                             @endif
                         @else
-                        <form action="produtos" method="get">
-                                <input type="text" name="nome" id="idNome" placeholder="Produto a pesquisar" value="">
-                                <input type="submit" value="Pesquisar" class="btn btn-search">
-                        </form>
-                        <li class="nav-item">
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('produtos.index') }}">{{ __('Produtos') }}</a>
                             </li>
                         <li class="nav-item">

@@ -3,6 +3,12 @@
 @section('content')
 
 <div class="container">
+
+<form action="produtos" method="get" class="pagination justify-content-end">
+	<input type="text" name="nome" id="idNome" placeholder="Produto a pesquisar" value="">
+	<input type="submit" value="Pesquisar" class="btn-orange">
+</form>
+
 <h1>Lista dos seus Produtos </h1>
 
 <table class="table">
@@ -19,13 +25,9 @@
 			@foreach($produtos as $produto)
 			<tr>
 				<td>{{ $produto['nome'] }}</td>
-				<td>
-					0
-				</td>
+				<td>{{ count($produto['opcaos']) }}</td>
 				<td>{{ $produto['created_at'] }}</td>
-				<td>
-					{{ $produto['estado'] }}
-				</td>
+				<td>{{ $produto['estado'] }}</td>
 				<td>
 					<a href="{{route('produtos.show',$produto)}}">Ver</a>	
 				</td>
@@ -46,9 +48,9 @@
 </div>
 
 <div class="container">
-	<a href="{{route('produtos.create')}}" class="btn btn-primary">Novo Produto</a>
+	<a href="{{route('produtos.create')}}" class="btn-orange">Novo Produto</a>
 
-	<a href="/produtos?ver=todos" class="btn btn-primary" id="ver" value="todos">Ver Todos</a>
+	<a href="/produtos?ver=todos" class="btn-orange" id="ver" value="todos">Ver Todos</a>
 </div>
 
 @endsection

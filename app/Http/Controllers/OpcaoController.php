@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Opcao;
+use App\Produto;
+use App\PontoDados;
 use Illuminate\Http\Request;
 
 class OpcaoController extends Controller
@@ -22,9 +24,10 @@ class OpcaoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Produto $produto)
     {
-        //
+        $pontosdados = PontoDados::where('produto_id', $produto->id)->get();
+        return view('opcaos.create')->with('pontosdados',$pontosdados);
     }
 
     /**
@@ -35,7 +38,10 @@ class OpcaoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $opcaos = new Opcao();
+        $opcaos->fill($request->all());
+        $opcaos->save();
+        return redirect()->route('produtos.edit', $opcaos->produto_id);
     }
 
     /**
