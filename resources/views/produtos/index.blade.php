@@ -25,7 +25,7 @@
 			@foreach($produtos as $produto)
 			<tr>
 				<td>{{ $produto['nome'] }}</td>
-				<td>{{ count($produto['opcaos']) }}</td>
+				<td>{{ count( collect( $produto['opcaos'] )->groupBy('referencia') ) }}</td>
 				<td>{{ $produto['created_at'] }}</td>
 				<td>{{ $produto['estado'] }}</td>
 				<td>

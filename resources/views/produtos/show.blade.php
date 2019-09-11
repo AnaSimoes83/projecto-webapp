@@ -18,7 +18,10 @@
 
 	<h2> Opções </h2>
 
-	@php $a = $produto->opcaos[0]['referencia'] @endphp
+	@if( sizeof($produto->opcaos) )   	<!-- quando ainda não há opções -->
+		@php $a = $produto->opcaos[0]['referencia'] @endphp
+	@endif
+
 
 	<div class="form-group">
 		<table class="table">		
@@ -44,7 +47,8 @@
 					@php $a = $opcao['referencia'] @endphp
 
 					@endforeach
-					<td>{{ $pontodados['updated_at'] }}</td>
+					
+					<td>{{ $opcao['updated_at'] }}</td>
 				</tr>
 			</tbody>
 
