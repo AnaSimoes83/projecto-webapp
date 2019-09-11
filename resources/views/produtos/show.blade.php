@@ -4,7 +4,7 @@
 
 <div class="container">
 	
-<h1>Produto: {{$produto['nome']}} </h1>
+	<h1> Produto: {{$produto['nome']}} </h1>
 	<form method="POST" >
 		@method('PUT')
 		@csrf()
@@ -16,13 +16,48 @@
 		</div>
 	</form>
 
-    <h2>Opções </h2>
+	<h2> Opções </h2>
 
-    a aparecer a tabela da view create das opcaos
+	@php $a = $produto->opcaos[0]['referencia'] @endphp
 
-<br>
-<br>
-<a href="{{route('produtos.index')}}" class="btn-orange">Voltar</a>	
-</div>
+	<div class="form-group">
+		<table class="table">		
+			<thead>
+				<tr>
+					@foreach($produto->pontos_dados as $pontodados)
+					<th>{{ $pontodados['nome'] }}</th>
+					@endforeach
+					<th>Última atualização</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr>
+					@foreach($produto->opcaos as $opcao)
 
-@endsection
+					@if($opcao->referencia != $a)
+						</tr><tr>
+					@endif
+
+					<td>{{ $opcao['valor'] }}</td>
+
+					@php $a = $opcao['referencia'] @endphp
+
+					@endforeach
+					<td>{{ $pontodados['updated_at'] }}</td>
+				</tr>
+			</tbody>
+
+		</table>
+	</div>
+
+	<br>
+	<br>
+	<a href="{{route('produtos.index')}}" class="btn-orange">Voltar</a>
+	<n>
+		<a href="{{route('opcaos.create', $produto)}}" class="btn-orange">Adicionar Opção</a> 	
+	</div>
+
+	@endsection
+
+

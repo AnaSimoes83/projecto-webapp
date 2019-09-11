@@ -41,6 +41,10 @@ class OpcaoController extends Controller
         $inputs = $request->except('_token');
         $referencia = array_values($inputs)[0];
 
+        $procuraRef = Opcao::where('referencia', $referencia)->get();
+        if( sizeof($procuraRef) > 0)
+            return back()->with('error','Já existem opções de compra com essa referência. Pf defina uma nova referência!');
+
         foreach ($inputs as $key => $value) {
             $opcao = new Opcao();
             $opcao->referencia = $referencia;
@@ -50,7 +54,7 @@ class OpcaoController extends Controller
             $opcao->save();
        }
        
-        return redirect()->route('produtos.edit', $produto);
+        return redirect()->route('produtos.show', $produto);
     }
 
     /**

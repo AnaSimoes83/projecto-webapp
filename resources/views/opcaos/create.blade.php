@@ -3,7 +3,14 @@
 @section('content')
 
 <div class="container">
-	<h1> Nova Opção </h1>
+	<h1> Nova Opção do Produto: {{$produto['nome']}}</h1>
+
+	@if ($message = Session::get('error'))
+	<div class="alert alert-danger alert-block">
+		<button type="button" class="close" data-dismiss="alert">×</button>	
+	        <strong>{{ $message }}</strong>
+	</div>
+	@endif
 
 	<form method="POST" action="{{route('opcaos.store', $produto)}}">
 		@csrf()
@@ -15,8 +22,9 @@
 	@endforeach
 
 	<button type="submit" class="btn-orange">Guardar</button>
-</form>
-<br>
+<n>
 <a href="{{route('produtos.index')}}" class="btn-orange">Voltar</a>
+
+</form>
 
 @endsection

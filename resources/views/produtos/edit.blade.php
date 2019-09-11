@@ -75,10 +75,10 @@
 		<div class="form-group">
 			<label for="tipo">Tipo</label>
 			<select name="tipo" id="tipo" required>
-				<option value="texto">Texto</option>
-				<option value="data">Data</option>
-				<option value="numérico superior">Numérico superior</option>
-				<option value="numérico inferior">Numérico inferior</option>
+				<option value="Texto">Texto</option>
+				<option value="Data">Data</option>
+				<option value="Numérico Superior">Numérico superior</option>
+				<option value="Numérico Inferior">Numérico inferior</option>
 			</select>
 		</div>
 
@@ -97,11 +97,8 @@
 	<br>
 	<a href="{{route('opcaos.create', $produto)}}" class="btn-orange">Adicionar Opção</a> 
 	<!--abrir a página show dos produtos para adicionar as opções-->
-</div>
 
-<br>
-
-<div class="container">
+<n>
 	<a href="{{route('produtos.index')}}" class="btn-orange">Voltar</a>
 </div>
 
