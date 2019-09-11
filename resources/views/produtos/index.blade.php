@@ -5,7 +5,7 @@
 <div class="container">
 
 <form action="produtos" method="get" class="pagination justify-content-end">
-	<input type="text" name="nome" id="idNome" placeholder="Produto a pesquisar" value="">
+	<input type="text" name="nome" id="idNome" placeholder=" Produto a pesquisar" value="">
 	<input type="submit" value="Pesquisar" class="btn-orange">
 </form>
 

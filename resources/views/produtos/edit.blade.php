@@ -47,7 +47,7 @@
 					<td>{{ $pontodados['nome'] }}</td>
 					<td>{{ $pontodados['tipo'] }}</td>
 					<td>
-						@if($pontodados['nome'] != "Nome" && $pontodados['nome'] != "Preço")
+						@if($pontodados['nome'] != "Referência" && $pontodados['nome'] != "Nome" && $pontodados['nome'] != "Preço")
 						<form method="POST" action="{{route('pontosdados.destroy', $pontodados)}}">
 							@method('DELETE')
 							@csrf()

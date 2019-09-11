@@ -15,10 +15,11 @@ class CreateOpcaosTable extends Migration
     {
         Schema::create('opcaos', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('referencia');
             $table->string('valor');
             $table->integer('produto_id');
             $table->foreign('produto_id')->references('id')->on('produtos'); // produto_id é chave primária da tabela produtos
-             $table->integer('pontosdados_id');
+            $table->integer('pontosdados_id');
             $table->foreign('pontosdados_id')->references('id')->on('pontodados'); // pontosdados_id é chave primária da tabela pontodados
             $table->timestamps();
         });

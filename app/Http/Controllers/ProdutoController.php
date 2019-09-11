@@ -62,6 +62,12 @@ class ProdutoController extends Controller
         $produto->save();
 
         $pontodados=new PontoDados();
+        $pontodados['nome']="Referência";
+        $pontodados['tipo']="Texto";
+        $pontodados['produto_id'] = $produto->id;
+        $pontodados->save();
+
+        $pontodados=new PontoDados();
         $pontodados['nome']="Nome";
         $pontodados['tipo']="Texto";
         $pontodados['produto_id'] = $produto->id;
@@ -75,7 +81,7 @@ class ProdutoController extends Controller
 
         $pontodados=new PontoDados();
         $pontodados['nome']="Imagens";
-        $pontodados['tipo']="";
+        $pontodados['tipo']="Texto";
         $pontodados['produto_id'] = $produto->id;
         $pontodados->save();
 

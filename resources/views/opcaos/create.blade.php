@@ -5,22 +5,18 @@
 <div class="container">
 	<h1> Nova Opção </h1>
 
-	@foreach($pontosdados as $pontodados)
-	<form method="POST" action="{{route('opcaos.store')}}">
+	<form method="POST" action="{{route('opcaos.store', $produto)}}">
 		@csrf()
+		@foreach($pontosdados as $pontodados)
 		<div class="form-group">
 			<label for="nome">{{ $pontodados['nome'] }}</label>
-			<input type="text" name="valor" 
-			id="valor" class="form-control">
+			<input type="text" name="{{ $pontodados->id }}" id="{{ $pontodados->id }}" class="form-control" @if($pontodados->nome=='Nome' || $pontodados->nome=="Preço" || $pontodados->nome=="Referência") required @endif>
 		</div>
 	@endforeach
 
-<!--<button type="submit" class="btn-orange">Guardar</button>-->
-	<!-- Este id está definido em javascript.js-->
-	</form>
-
-	a aparecer o botão guardar
-	<br>
-	<a href="{{route('produtos.index')}}" class="btn-orange">Voltar</a>
+	<button type="submit" class="btn-orange">Guardar</button>
+</form>
+<br>
+<a href="{{route('produtos.index')}}" class="btn-orange">Voltar</a>
 
 @endsection

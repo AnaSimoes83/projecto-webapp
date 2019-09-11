@@ -25,4 +25,4 @@ Route::resource('pontosdados','PontoDadosController');
 
 Route::resource('opcaos','OpcaoController');
 Route::get('/opcaos/{produto}/create','OpcaoController@create')->name('opcaos.create');
-
+Route::post('/opcaos/{produto}','OpcaoController@store')->name('opcaos.store');

@@ -10,7 +10,7 @@ class Produto extends Model
     	"nome","notas","estado"];
     
     public function pontos_dados (){
- 		return $this->hasMany('App\PontoDados');
+ 		return $this->hasMany('App\PontoDados')->orderBy('id');
  	}
  	
  	public function opcaos (){

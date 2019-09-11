@@ -26,8 +26,8 @@ class OpcaoController extends Controller
      */
     public function create(Produto $produto)
     {
-        $pontosdados = PontoDados::where('produto_id', $produto->id)->get();
-        return view('opcaos.create')->with('pontosdados',$pontosdados);
+        $pontosdados = PontoDados::where('produto_id', $produto->id)->orderBy('id')->get();
+        return view('opcaos.create')->with('pontosdados',$pontosdados)->with('produto',$produto);
     }
 
     /**
@@ -36,12 +36,21 @@ class OpcaoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Produto $produto)
     {
-        $opcaos = new Opcao();
-        $opcaos->fill($request->all());
-        $opcaos->save();
-        return redirect()->route('produtos.edit', $opcaos->produto_id);
+        $inputs = $request->except('_token');
+        $referencia = array_values($inputs)[0];
+
+        foreach ($inputs as $key => $value) {
+            $opcao = new Opcao();
+            $opcao->referencia = $referencia;
+            $opcao->produto_id =  $produto->id;
+            $opcao->pontosdados_id = $key;
+            $opcao->valor = $value ?? '';                 //admite valores nulos
+            $opcao->save();
+       }
+       
+        return redirect()->route('produtos.edit', $produto);
     }
 
     /**
