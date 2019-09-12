@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class authorization
+class Authorization
 {
     /**
      * Handle an incoming request.
@@ -15,6 +15,10 @@ class authorization
      */
     public function handle($request, Closure $next)
     {
+        $user = auth()->user();        
+        if($user->admin == false){            
+            return redirect()->guest(route('notauth'));         
+        }
         return $next($request);
     }
 }

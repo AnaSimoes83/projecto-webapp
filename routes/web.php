@@ -26,3 +26,9 @@ Route::resource('pontosdados','PontoDadosController');
 Route::resource('opcaos','OpcaoController');
 Route::get('/opcaos/{produto}/create','OpcaoController@create')->name('opcaos.create');
 Route::post('/opcaos/{produto}','OpcaoController@store')->name('opcaos.store');
+
+Route::resource('users','UserController')->middleware(['auth','admin']);
+
+Route::get('/notauth', function () {
+return view('notauth');
+})->name('notauth');
