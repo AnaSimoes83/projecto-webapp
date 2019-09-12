@@ -4,12 +4,17 @@
 
 <div class="container">
 
-<form action="produtos" method="get" class="pagination justify-content-end">
-	<input type="text" name="nome" id="idNome" placeholder=" Produto a pesquisar" value="">
-	<input type="submit" value="Pesquisar" class="btn-orange">
-</form>
-
-<h1>Lista dos seus Produtos </h1>
+<table class="table table-borderless"> 	
+	<tr> 		
+		<td><h1>Lista dos seus Produtos </h1></td>
+		<td> 			
+			<form action="produtos" method="get" class="pagination justify-content-end"> 				
+				<input type="text" name="nome" id="idNome" placeholder=" Produto a pesquisar" value=""> 				
+				<input type="submit" value="Pesquisar" class="btn-orange"> 			
+			</form> 		
+		</td> 	
+	</tr> 
+</table>
 
 <table class="table">
 		<thead>
@@ -18,7 +23,7 @@
 				<th>N.º Opções</th>
 				<th>Data</th>
 				<th>Estado</th>
-				<th colspan="3">Acções</th>
+				<th td style="text-align: center;" colspan="3">Acções</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -28,13 +33,13 @@
 				<td>{{ count( collect( $produto['opcaos'] )->groupBy('referencia') ) }}</td>
 				<td>{{ $produto['created_at'] }}</td>
 				<td>{{ $produto['estado'] }}</td>
-				<td>
+				<td style="text-align: center;">
 					<a href="{{route('produtos.show',$produto)}}">Ver</a>	
 				</td>
-				<td>
+				<td style="text-align: center;">
 					<a href="{{route('produtos.edit',$produto)}}">Editar</a>	
 				</td>
-				<td>
+				<td style="text-align: center;">
 					<form method="POST" action="{{route('produtos.destroy',$produto)}}">
 						@method('DELETE')
 						@csrf()

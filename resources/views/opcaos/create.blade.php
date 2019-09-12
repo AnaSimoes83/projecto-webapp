@@ -19,7 +19,7 @@
 			<label for="nome">{{ $pontodados['nome'] }}</label>
 			<input type="text" name="{{ $pontodados->id }}" id="{{ $pontodados->id }}" class="form-control" @if($pontodados->nome=='Nome' || $pontodados->nome=="Preço" || $pontodados->nome=="Referência") required @endif>
 		</div>
-	@endforeach
+		@endforeach
 
 	<button type="submit" class="btn-orange">Guardar</button>
 <n>

@@ -46,7 +46,7 @@ class PontoDadosController extends Controller
 
     /**
      * Display the specified resource.
-     *
+     *  
      * @param  \App\PontoDados  $pontoDados
      * @return \Illuminate\Http\Response
      */
@@ -61,9 +61,9 @@ class PontoDadosController extends Controller
      * @param  \App\PontoDados  $pontoDados
      * @return \Illuminate\Http\Response
      */
-    public function edit(PontoDados $pontoDados)
+    public function edit(PontoDados $pontosdado)
     {
-        //
+        return view('pontosdados.edit')->with('pontosdados',$pontosdado);
     }
 
     /**
@@ -73,9 +73,11 @@ class PontoDadosController extends Controller
      * @param  \App\PontoDados  $pontoDados
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PontoDados $pontoDados)
+    public function update(Request $request, PontoDados $pontosdado)
     {
-        //
+        $pontosdado->fill($request->all());
+        $pontosdado->save();
+        return redirect()->route('produtos.edit', $pontosdado->produto_id);
     }
 
     /**

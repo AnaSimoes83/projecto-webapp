@@ -43,14 +43,14 @@ class OpcaoController extends Controller
 
         $procuraRef = Opcao::where('referencia', $referencia)->get();
         if( sizeof($procuraRef) > 0)
-            return back()->with('error','Já existem opções de compra com essa referência. Pf defina uma nova referência!');
+            return back()->with('error','Já existe uma opção com essa referência. Por favor, defina uma nova referência.');
 
         foreach ($inputs as $key => $value) {
             $opcao = new Opcao();
             $opcao->referencia = $referencia;
             $opcao->produto_id =  $produto->id;
             $opcao->pontosdados_id = $key;
-            $opcao->valor = $value ?? '';                 //admite valores nulos
+            $opcao->valor = $value ?? '';                  //admite valores nulos
             $opcao->save();
        }
        

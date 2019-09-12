@@ -20,10 +20,9 @@
 		<div class="form-group">
 			<label for="estado">Estado</label>
 			<select name="estado" id="estado">
-				<option value="Em curso">Em curso</option>
-				<option value="Terminado">Terminado</option>
+				<option @if( $produto['estado'] == 'Em curso') selected @endif value="Em curso">Em curso</option>
+				<option @if( $produto['estado'] == 'Terminado') selected @endif value="Terminado">Terminado</option>
 			</select>
-
 		</div>
 		<button type="submit" class="btn-orange">Atualizar Produto</button>
 	</form>
@@ -38,7 +37,7 @@
 				<tr>
 					<th>Nome</th>
 					<th>Tipo</th>
-					<th>Acções</th>
+					<th td style="text-align: center;" colspan="2">Acções</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -46,7 +45,12 @@
 				<tr>
 					<td>{{ $pontodados['nome'] }}</td>
 					<td>{{ $pontodados['tipo'] }}</td>
-					<td>
+					<td style="text-align: center;">
+						@if($pontodados['nome'] != "Referência" && $pontodados['nome'] != "Nome" && $pontodados['nome'] != "Preço" && $pontodados['nome'] != "Imagens" && $pontodados['nome'] != "Notas" && $pontodados['nome'] != "Link compra" && $pontodados['nome'] != "Link informação")
+							<a href="{{route('pontosdados.edit',$pontodados)}}" class="btn btn-link">Editar</a>
+						@endif
+					</td>
+					<td style="text-align: center;">
 						@if($pontodados['nome'] != "Referência" && $pontodados['nome'] != "Nome" && $pontodados['nome'] != "Preço")
 						<form method="POST" action="{{route('pontosdados.destroy', $pontodados)}}">
 							@method('DELETE')
@@ -77,8 +81,8 @@
 			<select name="tipo" id="tipo" required>
 				<option value="Texto">Texto</option>
 				<option value="Data">Data</option>
-				<option value="Numérico Superior">Numérico superior</option>
-				<option value="Numérico Inferior">Numérico inferior</option>
+				<option value="Numérico superior">Numérico superior</option>
+				<option value="Numérico inferior">Numérico inferior</option>
 			</select>
 		</div>
 
