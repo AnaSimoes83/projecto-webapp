@@ -24,10 +24,14 @@
 					<td>{{ $user['name'] }}</td>
 					<td>{{ $user['email'] }}</td>
 					<td>{{ $user['foto'] }}</td>
-					<td>{{ $user['estado'] }}</td>
 					<td>
-						@if( $user['admin'] == '1') sim	
-						@else não
+						@if( $user['estado'] == 'Inativo') Inativo	
+						@else Ativo
+						@endif 
+					</td>
+					<td>
+						@if( $user['admin'] == '1') Sim	
+						@else Não
 						@endif 
 					</td>
 					<td>

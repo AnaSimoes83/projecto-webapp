@@ -69,11 +69,13 @@
 	<br>
 	<h3>Adicionar Característica</h3>
 
+	
+
 	<form method="POST" action="{{route('pontosdados.store', $produto)}}" >
 		@csrf()
 		<div class="form-group">
 			<label for="nome">Nome</label>
-			<input type="text" name="nome" id="nome" class="form-control" placeholder="Insira a característica a adicionar">
+			<input type="text" name="nome" id="nome" required class="form-control" placeholder="Insira a característica a adicionar">
 		</div>
 
 		<div class="form-group">
