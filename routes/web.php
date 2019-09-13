@@ -30,5 +30,5 @@ Route::post('/opcaos/{produto}','OpcaoController@store')->name('opcaos.store');
 Route::resource('users','UserController')->middleware(['auth','admin']);
 
 Route::get('/notauth', function () {
-return view('notauth');
-})->name('notauth');
+	return view('notauth');
+	})->name('notauth');

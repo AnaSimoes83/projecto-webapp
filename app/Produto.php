@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Produto extends Model
 {
     protected $fillable = [
-    	"nome", "notas", "estado"
+    	"user_id", "nome", "notas", "estado"
     ];
     
     public function pontos_dados (){
@@ -17,6 +17,10 @@ class Produto extends Model
  	public function opcaos (){
  		return $this->hasMany('App\Opcao');
  	}
+
+ 	public function user (){
+ 		return $this->belongsTo('App\User');
+	}
 }
 
 

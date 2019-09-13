@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Produto;
 use App\PontoDados;
 use App\Opcao;
+use Auth;
 use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
@@ -17,7 +18,10 @@ class ProdutoController extends Controller
      */
     public function index(Request $request)
     {
+        Auth::user()->produtos;
         $produtos = Produto::where('estado','=','Em curso')->paginate(10);
+
+        // outra forma de criar ligação entre users e produtos:where('user_id','=',Auth:user()->id)
 
         if($request->ver=='todos'){
             $produtos = Produto::paginate(10);    
@@ -59,6 +63,7 @@ class ProdutoController extends Controller
     {
         $produto = new Produto();
         $produto->fill($request->all());
+        $produto->user_id=Auth::user()->id;
         $produto->save();
 
         $pontodados=new PontoDados();
