@@ -24,15 +24,14 @@
 					<td>{{ $user['name'] }}</td>
 					<td>{{ $user['email'] }}</td>
 					<td>{{ $user['foto'] }}</td>
-					<td style="text-align: center;">
-						<div class="form-group">
-							<label for="estado">Estado</label>
-							<select name="estado" id="estado">
-								<option @if( $user['estado'] == 'Ativo') selected @endif value="Ativo">Ativo</option>
-								<option @if( $user['estado'] == 'Inativo') selected @endif value="Inativo">Inativo</option>
-							</select>
-						</div>
-							<a href="{{route('users.edit',$users)}}" class="btn btn-link">Editar</a>
+					<td>{{ $user['estado'] }}</td>
+					<td>
+						@if( $user['admin'] == '1') sim	
+						@else não
+						@endif 
+					</td>
+					<td>
+						<a href="{{route('users.edit',$user)}}" class="btn btn-link">Editar</a>
 					</td>
 					<td style="text-align: center;">
 						<form method="POST" action="{{route('users.destroy',$user)}}">
@@ -51,8 +50,3 @@
 </div>
 
 @endsection
-
-
-	<h3>Adicionar Utilizador</h3>
-
-	

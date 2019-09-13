@@ -16,7 +16,7 @@ class Authorization
     public function handle($request, Closure $next)
     {
         $user = auth()->user();        
-        if($user->admin == false){            
+        if($user->admin == true){            
             return redirect()->guest(route('notauth'));         
         }
         return $next($request);
