@@ -19,17 +19,23 @@ class ProdutoController extends Controller
     public function index(Request $request)
     {
         Auth::user()->produtos;
-        $produtos = Produto::where('estado','=','Em curso')->paginate(10);
+        $produtos = Produto::where([
+                ['user_id', '=', Auth::user()->id],
+                ['estado', '=', 'Em curso'],
+            ])->paginate(10);
 
-        // outra forma de criar ligação entre users e produtos:where('user_id','=',Auth:user()->id)
+        // outra forma de criar ligação entre users e produtos::where('user_id','=',Auth::user()->id)
 
         if($request->ver=='todos'){
-            $produtos = Produto::paginate(10);    
+            $produtos = Produto::where('user_id', '=', Auth::user()->id)->paginate(10);    
         }
 
         if($request->has('nome')){
-            $produtos = Produto::where('nome','=',$request->nome)->paginate(10);
-        }
+             $produtos = Produto::where([
+                ['user_id', '=', Auth::user()->id],
+                ['nome', '=', $request->nome],
+            ])->paginate(10);
+         }
 
         return view('produtos.index')->with('produtos',$produtos);
 

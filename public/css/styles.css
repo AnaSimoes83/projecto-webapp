@@ -27,3 +27,9 @@ body {
     text-align: left;
     background-color: #FFF2E5;
 }
+
+.page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: orange;
+    border-color: #3490dc;

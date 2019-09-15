@@ -50,6 +50,9 @@
 			@endforeach
 		</tbody>
 </table>
+
+{{ $produtos->links() }}
+
 </div>
 
 <div class="container">

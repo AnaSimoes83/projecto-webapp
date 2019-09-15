@@ -26,7 +26,7 @@ class OpcaoController extends Controller
      */
     public function create(Produto $produto)
     {
-        $pontosdados = PontoDados::where('produto_id', $produto->id)->orderBy('id')->get();
+        $pontosdados = PontoDados::where('produto_id',$produto->id)->orderBy('id')->get();
         return view('opcaos.create')->with('pontosdados',$pontosdados)->with('produto',$produto);
     }
 
